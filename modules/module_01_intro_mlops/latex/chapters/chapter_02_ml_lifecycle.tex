@@ -1,0 +1,314 @@
+% --------------------------------------------------
+% Chapter 02
+% The Machine Learning Lifecycle
+% --------------------------------------------------
+
+\label{chap:ml-lifecycle}
+
+\section{Learning Objectives}
+
+After completing this chapter, learners will be able to:
+
+\begin{itemize}
+    \item Describe the complete machine learning lifecycle.
+    \item Understand the objectives of each lifecycle phase.
+    \item Identify the stakeholders involved throughout the process.
+    \item Explain why machine learning should be viewed as a continuous process.
+    \item Understand how MLOps supports lifecycle management.
+\end{itemize}
+
+\section{Introduction}
+
+Many organizations mistakenly view machine learning as a one-time development project.
+
+In reality, machine learning systems require continuous management throughout their entire lifecycle.
+
+Unlike traditional software applications, machine learning systems interact with changing environments, evolving data sources, and shifting business requirements.
+
+As a result, machine learning must be treated as an ongoing operational process rather than a single development effort.
+
+The machine learning lifecycle provides a structured framework for managing this process.
+
+\section{Overview of the Machine Learning Lifecycle}
+
+A typical machine learning lifecycle consists of the following stages:
+
+\begin{enumerate}
+    \item Business Understanding
+    \item Data Collection
+    \item Data Preparation
+    \item Feature Engineering
+    \item Model Development
+    \item Model Validation
+    \item Model Deployment
+    \item Monitoring
+    \item Retraining
+\end{enumerate}
+
+These stages form a continuous cycle supported by feedback loops and operational monitoring.
+
+\section{Business Understanding}
+
+Every machine learning project begins with a business problem.
+
+The objective is not to build a model but to solve a business challenge.
+
+Examples include:
+
+\begin{itemize}
+    \item Credit risk assessment
+    \item Fraud detection
+    \item Customer churn prediction
+    \item Demand forecasting
+\end{itemize}
+
+Key questions include:
+
+\begin{itemize}
+    \item What business problem are we trying to solve?
+    \item What value will the solution create?
+    \item How will success be measured?
+    \item What constraints must be respected?
+\end{itemize}
+
+\subsection{Credit Scoring Example}
+
+A bank wants to reduce credit losses while maintaining acceptable approval rates.
+
+Potential objectives include:
+
+\begin{itemize}
+    \item Reduce default rates
+    \item Improve portfolio quality
+    \item Accelerate credit decisions
+    \item Meet regulatory requirements
+\end{itemize}
+
+\section{Data Collection}
+
+Data is the foundation of every machine learning system.
+
+Organizations must identify and collect relevant information from available sources.
+
+Typical data sources include:
+
+\begin{itemize}
+    \item Internal databases
+    \item Transaction systems
+    \item CRM platforms
+    \item External vendors
+    \item Public datasets
+\end{itemize}
+
+Key considerations include:
+
+\begin{itemize}
+    \item Data quality
+    \item Data completeness
+    \item Data ownership
+    \item Data governance
+\end{itemize}
+
+\section{Data Preparation}
+
+Raw data is rarely suitable for immediate use.
+
+Data preparation aims to transform raw data into a usable analytical dataset.
+
+Typical activities include:
+
+\begin{itemize}
+    \item Missing value treatment
+    \item Outlier detection
+    \item Data cleansing
+    \item Variable transformations
+    \item Data integration
+\end{itemize}
+
+In many projects, data preparation consumes the majority of project effort.
+
+\section{Feature Engineering}
+
+Feature engineering transforms raw variables into predictive features.
+
+Examples include:
+
+\begin{itemize}
+    \item Aggregations
+    \item Ratios
+    \item Time-based features
+    \item Behavioral indicators
+    \item Statistical summaries
+\end{itemize}
+
+For credit scoring, examples include:
+
+\begin{itemize}
+    \item Debt-to-income ratio
+    \item Credit utilization rate
+    \item Number of recent inquiries
+    \item Average account age
+\end{itemize}
+
+Feature engineering often has a greater impact on performance than model selection.
+
+\section{Model Development}
+
+The objective of model development is to learn relationships between input variables and target outcomes.
+
+Common algorithms include:
+
+\begin{itemize}
+    \item Logistic Regression
+    \item Decision Trees
+    \item Random Forests
+    \item Gradient Boosting
+    \item Neural Networks
+\end{itemize}
+
+Activities typically include:
+
+\begin{itemize}
+    \item Training
+    \item Hyperparameter tuning
+    \item Cross-validation
+    \item Model comparison
+\end{itemize}
+
+\section{Model Validation}
+
+Before deployment, models must be independently validated.
+
+Validation aims to ensure that the model is:
+
+\begin{itemize}
+    \item Accurate
+    \item Stable
+    \item Robust
+    \item Explainable
+\end{itemize}
+
+Typical validation metrics include:
+
+\begin{itemize}
+    \item Accuracy
+    \item Precision
+    \item Recall
+    \item ROC-AUC
+    \item KS Statistic
+\end{itemize}
+
+In regulated industries, validation may also include:
+
+\begin{itemize}
+    \item Fairness assessment
+    \item Bias testing
+    \item Documentation review
+    \item Governance checks
+\end{itemize}
+
+\section{Model Deployment}
+
+Deployment makes the model available to end users or downstream systems.
+
+Common deployment patterns include:
+
+\begin{itemize}
+    \item Batch scoring
+    \item Real-time APIs
+    \item Embedded applications
+    \item Streaming inference
+\end{itemize}
+
+Key requirements include:
+
+\begin{itemize}
+    \item Reliability
+    \item Scalability
+    \item Security
+    \item Performance
+\end{itemize}
+
+\section{Monitoring}
+
+Deployment is not the end of the lifecycle.
+
+Models must be continuously monitored.
+
+Monitoring objectives include:
+
+\begin{itemize}
+    \item Detect performance degradation
+    \item Detect data drift
+    \item Detect concept drift
+    \item Monitor operational metrics
+\end{itemize}
+
+Typical indicators include:
+
+\begin{itemize}
+    \item Prediction distributions
+    \item Data quality metrics
+    \item Business KPIs
+    \item Service latency
+\end{itemize}
+
+\section{Retraining}
+
+Over time, model performance may deteriorate.
+
+Retraining allows the model to adapt to changing environments.
+
+Retraining strategies include:
+
+\begin{itemize}
+    \item Scheduled retraining
+    \item Trigger-based retraining
+    \item Continuous training
+\end{itemize}
+
+The retraining process should be automated whenever possible.
+
+\section{Feedback Loops}
+
+Monitoring results provide feedback to earlier lifecycle stages.
+
+Examples include:
+
+\begin{itemize}
+    \item New data collection requirements
+    \item Feature redesign
+    \item Model replacement
+    \item Updated business objectives
+\end{itemize}
+
+This creates a continuous improvement cycle.
+
+\section{The Role of MLOps}
+
+MLOps supports every stage of the machine learning lifecycle.
+
+Examples include:
+
+\begin{itemize}
+    \item Data versioning
+    \item Experiment tracking
+    \item Automated training
+    \item Automated deployment
+    \item Continuous monitoring
+    \item Governance controls
+\end{itemize}
+
+Without MLOps, managing machine learning systems at scale becomes extremely difficult.
+
+\section{Summary}
+
+Machine learning is not a one-time development activity.
+
+Successful machine learning systems require continuous management throughout their lifecycle.
+
+The lifecycle begins with business objectives and continues through data collection, model development, deployment, monitoring, and retraining.
+
+Understanding this lifecycle is essential for designing reliable, scalable, and governable AI systems.
+
+The next chapter introduces the core principles of MLOps, including reproducibility, version control, automation, monitoring, and governance.

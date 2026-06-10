@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1781041639.47849 "/Users/davidtbo/sciences/mlops/modules/module_01_intro_mlops/latex/main.tex" "main.pdf" "main" 1781041640.44846 0
-  "/Users/davidtbo/sciences/mlops/modules/module_01_intro_mlops/latex/main.tex" 1781041639.32017 1902 ee22d517779483446eef419e76c50534 ""
+["pdflatex"] 1781122118.0036 "/Users/davidtbo/sciences/mlops/modules/module_01_intro_mlops/latex/main.tex" "main.pdf" "main" 1781122119.37953 0
+  "/Users/davidtbo/sciences/mlops/modules/module_01_intro_mlops/latex/main.tex" 1781122116.48413 2193 a9b14d6af15a18ee818fd8eb2cd17a3d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1202520719 2840 216e6e45ad352e2456e1149f28885bee ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc" 1254269338 3031 6c4d3515bf7115d8518af1c9ab97ca44 ""
@@ -101,14 +101,18 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1765030449 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1765030342 3345738 8f33b52391bcbc5f0bc7e5c9933904ad ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "aux/main.aux" 1781041640.3641 30564 4e40f0ed89a3ae397709e1ba1069aaed "pdflatex"
-  "aux/main.out" 1781041640.36699 35088 262b678486bd29f36a8d01b60b4d727b "pdflatex"
-  "aux/main.toc" 1781041640.36728 19935 f3728a787e9ceb67a80ec618099acbba "pdflatex"
+  "aux/main.aux" 1781122119.27302 60509 7b6138fd02457189c468382715b157c0 "pdflatex"
+  "aux/main.out" 1781122119.27813 67814 b85d0ed97b65355357fcbfdb8557ff3c "pdflatex"
+  "aux/main.toc" 1781122119.27851 39177 e7c06b7bdb35120c330051d43167d984 "pdflatex"
   "chapters/chapter_01_why_mlops.tex" 1781039457.76034 6333 3a0b573ddfda1d3f4754a96a49650747 ""
   "chapters/chapter_02_ml_lifecycle.tex" 1781039903.84465 7838 834143e3855dd963651458a476861965 ""
   "chapters/chapter_03_mlops_principles.tex" 1781041243.83079 18664 462f1c81f9ba100795d12cb3aa9d6f86 ""
   "chapters/chapter_04_mlops_architecture.tex" 1781041562.2735 25919 7adfb1382b8ee8681b1e37b33ef12222 ""
-  "main.tex" 1781041639.32017 1902 ee22d517779483446eef419e76c50534 ""
+  "chapters/chapter_05_mlops_vs_devops.tex" 1781121315.67479 11579 a4a7a022cee208c69fbdf5c403562922 ""
+  "chapters/chapter_06_mlops_tooling_landscape.tex" 1781121620.52181 17800 911513a0a790680db7d6981d79bd0db4 ""
+  "chapters/chapter_07_roles_responsibilities.tex" 1781121853.22002 12357 7f43c6027c41ffef009f46f6f35f5770 ""
+  "chapters/chapter_08_mini_project.tex" 1781122084.92272 14458 1f76d86e809ede24be2ebee3207a5b88 ""
+  "main.tex" 1781122116.48413 2193 a9b14d6af15a18ee818fd8eb2cd17a3d ""
   (generated)
   "aux/main.aux"
   "aux/main.log"

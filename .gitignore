@@ -1,0 +1,17 @@
+.DS_Store
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# .pptx
+module_01_chapter_01_why_mlops.pptx
+
+# LaTeX
+*.tex
+*.aux
+*.log
+LaTeX/
+PPT/
+PDF/

@@ -6,7 +6,7 @@
 mkdir credit-scoring
 cd credit-scoring
 
-uv init .
+uv init
 ```
 
 Fichiers créés :

@@ -45,6 +45,7 @@ uv add matplotlib
 uv add seaborn
 uv add scorecardpy
 uv add matplotlib
+uv add scorecardpy
 ```
 
 Pour les dépendances de développement :

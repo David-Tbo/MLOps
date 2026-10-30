@@ -70,6 +70,76 @@ uv.lock
 uv remove matplotlib
 ```
 
+
+---
+
+## 5. Utilisation avec Jupyter
+
+
+Installer le kernel :
+```shell
+uv add ipykernel
+```
+
+Puis :
+```shell
+python -m ipykernel install \
+    --user \
+    --name credit-scoring
+```
+
+Ensuite dans VS Code ou Jupyter tu sélectionnes le kernel :
+```text
+credit-scoring
+```
+
+Les notebooks utiliseront exactement les packages gérés par uv.
+
+Importer ton code Python depuis les notebooks
+
+Si tu travailles en mode package :
+```python
+from credit_scoring.discretization import QuantileDiscretizer
+```
+
+au lieu de :
+```python
+import sys
+sys.path.append("../src")
+```
+
+Pour cela :
+```shell
+uv pip install -e .
+```
+
+ou plus simplement :
+```shell
+uv sync
+```
+
+si le package est déclaré dans pyproject.toml.
+
+Verrouillage des versions
+
+L'un des gros intérêts d'uv :
+```shell
+uv lock
+```
+
+génère :
+```text
+uv.lock
+```
+
+qui remplace efficacement un requirements.txt figé.
+
+Les autres développeurs reconstruisent exactement le même environnement :
+```shell
+uv sync
+```
+
+
 ---
 
 ## 6. Installer les dépendances du projet

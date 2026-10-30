@@ -25,10 +25,11 @@ main.py
 uv venv
 ```
 
-Activation sous Windows :
-
-```powershell
-.venv\Scripts\activate
+Activation :
+```shell
+source .venv/bin/activate      # Linux/Mac
+# ou
+.venv\Scripts\activate         # Windows
 ```
 
 ---
@@ -36,7 +37,21 @@ Activation sous Windows :
 ## 3. Ajouter les dépendances métier
 
 ```bash
-uv add pandas numpy scikit-learn fastapi uvicorn
+uv add pandas
+uv add numpy
+uv add scikit-learn
+uv add jupyterlab
+uv add matplotlib
+uv add seaborn
+uv add scorecardpy
+uv add matplotlib
+```
+
+Pour les dépendances de développement :
+```shell
+uv add --dev pytest
+uv add --dev ruff
+uv add --dev mypy
 ```
 
 Mise à jour automatique de :
@@ -48,21 +63,7 @@ uv.lock
 
 ---
 
-## 4. Ajouter une dépendance ultérieurement
-
-```bash
-uv add joblib
-```
-
-ou
-
-```bash
-uv add matplotlib
-```
-
----
-
-## 5. Supprimer une dépendance
+## 4. Supprimer une dépendance
 
 ```bash
 uv remove matplotlib

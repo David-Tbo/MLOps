@@ -1,10 +1,10 @@
-# uv - Mémo Projet Scoring
+# uv - Mémo Projet Machine Learning
 
 ## 1. Initialiser le projet
 
 ```bash
-mkdir credit-scoring
-cd credit-scoring
+mkdir diabetes-risk-modeling
+cd diabetes-risk-modeling
 
 uv init
 ```
@@ -26,10 +26,24 @@ uv venv
 ```
 
 Activation :
-```shell
+
+```bash
 source .venv/bin/activate      # Linux/Mac
 # ou
 .venv\Scripts\activate         # Windows
+```
+
+Remarque : avec uv, l'activation n'est pas toujours nécessaire. Il est souvent possible d'utiliser directement :
+
+```bash
+uv run <commande>
+```
+
+Exemples :
+
+```bash
+uv run python main.py
+uv run jupyter lab
 ```
 
 ---
@@ -44,15 +58,15 @@ uv add jupyterlab
 uv add matplotlib
 uv add seaborn
 uv add scorecardpy
-uv add matplotlib
-uv add scorecardpy
 ```
 
-Pour les dépendances de développement :
-```shell
+Dépendances de développement :
+
+```bash
 uv add --dev pytest
 uv add --dev ruff
 uv add --dev mypy
+uv add --dev ipykernel
 ```
 
 Mise à jour automatique de :
@@ -70,79 +84,95 @@ uv.lock
 uv remove matplotlib
 ```
 
+Mise à jour automatique de :
+
+```text
+pyproject.toml
+uv.lock
+```
 
 ---
 
 ## 5. Utilisation avec Jupyter
 
-
 Installer le kernel :
-```shell
-uv add ipykernel
+
+```bash
+uv add --dev ipykernel
 ```
 
-Puis :
-```shell
+Créer un kernel Jupyter associé à l'environnement :
+
+```bash
 python -m ipykernel install \
     --user \
-    --name credit-scoring
+    --name diabetes-risk-modeling
 ```
 
-Ensuite dans VS Code ou Jupyter tu sélectionnes le kernel :
+Dans VS Code ou Jupyter, sélectionner ensuite le kernel :
+
 ```text
-credit-scoring
+diabetes-risk-modeling
 ```
 
 Les notebooks utiliseront exactement les packages gérés par uv.
 
-Importer ton code Python depuis les notebooks
+### Importer son code Python depuis les notebooks
 
-Si tu travailles en mode package :
+Avec une structure en package :
+
 ```python
-from credit_scoring.discretization import QuantileDiscretizer
+from diabetes_risk_modeling.discretization import QuantileDiscretizer
 ```
 
-au lieu de :
+plutôt que :
+
 ```python
 import sys
 sys.path.append("../src")
 ```
 
-Pour cela :
-```shell
-uv pip install -e .
-```
+Si le package est correctement déclaré dans `pyproject.toml` :
 
-ou plus simplement :
-```shell
+```bash
 uv sync
 ```
 
-si le package est déclaré dans pyproject.toml.
+suffit généralement.
 
-Verrouillage des versions
+Alternative :
 
-L'un des gros intérêts d'uv :
-```shell
+```bash
+uv pip install -e .
+```
+
+---
+
+## 6. Verrouillage des versions
+
+L'un des principaux intérêts de uv :
+
+```bash
 uv lock
 ```
 
 génère :
+
 ```text
 uv.lock
 ```
 
-qui remplace efficacement un requirements.txt figé.
+Ce fichier garantit la reproductibilité exacte des dépendances.
 
-Les autres développeurs reconstruisent exactement le même environnement :
-```shell
+Les autres développeurs recréent le même environnement avec :
+
+```bash
 uv sync
 ```
 
-
 ---
 
-## 6. Installer les dépendances du projet
+## 7. Installer les dépendances du projet
 
 Après un clone Git :
 
@@ -150,7 +180,13 @@ Après un clone Git :
 uv sync
 ```
 
-Recrée automatiquement l'environnement à partir du :
+Cette commande :
+
+- crée l'environnement virtuel si nécessaire ;
+- installe les dépendances ;
+- applique les versions définies dans `uv.lock`.
+
+Fichiers utilisés :
 
 ```text
 pyproject.toml
@@ -159,13 +195,21 @@ uv.lock
 
 ---
 
-## 7. Exécuter le projet
+## 8. Exécuter le projet
+
+Exécution d'un script :
 
 ```bash
-uv run python app.py
+uv run python main.py
 ```
 
-ou
+Exécution d'un notebook :
+
+```bash
+uv run jupyter lab
+```
+
+Exemple FastAPI (si présent dans le projet) :
 
 ```bash
 uv run uvicorn app:app --reload
@@ -173,13 +217,15 @@ uv run uvicorn app:app --reload
 
 ---
 
-## 8. Mettre à jour les dépendances
+## 9. Mettre à jour les dépendances
+
+Mettre à jour le lockfile :
 
 ```bash
 uv lock --upgrade
 ```
 
-Puis :
+Puis synchroniser l'environnement :
 
 ```bash
 uv sync
@@ -187,42 +233,80 @@ uv sync
 
 ---
 
-## 9. Exporter vers requirements.txt
+## 10. Explorer les dépendances
 
-Seulement si nécessaire (compatibilité CI/CD, Docker, Jenkins, etc.)
+Afficher l'arbre des dépendances :
 
 ```bash
-uv export -o requirements.txt
+uv tree
+```
+
+Très utile pour comprendre les dépendances transitives.
+
+---
+
+## 11. Exporter vers requirements.txt
+
+Uniquement pour des besoins de compatibilité :
+
+- Docker
+- CI/CD
+- Jenkins
+- plateformes ne supportant pas uv
+
+```bash
+uv export --format requirements-txt -o requirements.txt
 ```
 
 ---
 
-## 10. Structure cible
+## 12. Structure cible du projet
 
 ```text
-credit-scoring/
+diabetes-risk-modeling/
 ├── .venv/
 ├── pyproject.toml
 ├── uv.lock
-├── Dockerfile
-├── compose.yaml
-├── compose.debug.yaml
-├── app.py
+├── README.md
+├── docs/
+│   ├── architecture.md
+│   ├── methodology.md
+│   └── data_dictionary.md
+├── data/
+├── notebooks/
+│   ├── 01_eda.ipynb
+│   ├── 02_feature_engineering.ipynb
+│   └── 03_modeling.ipynb
+├── tests/
+├── main.py
 └── src/
+    └── diabetes_risk_modeling/
+        ├── __init__.py
+        ├── preprocessing.py
+        ├── discretization.py
+        ├── modeling.py
+        └── evaluation.py
 ```
 
 ---
 
 ## Règle MLOps
 
-```text
 Source de vérité :
-    pyproject.toml
-    uv.lock
+
+```text
+pyproject.toml
+    → dépendances déclarées
+
+uv.lock
+    → versions figées et reproductibles
 ```
 
 Compatibilité :
-    `requirements.txt` (généré si besoin)
+
+```text
+requirements.txt
+```
 
 Ne jamais maintenir manuellement :
 
@@ -230,10 +314,22 @@ Ne jamais maintenir manuellement :
 requirements.txt
 ```
 
-Le générer à partir de :
+Le générer automatiquement à partir de :
 
 ```text
 pyproject.toml
 +
 uv.lock
+```
+
+Principe :
+
+```text
+Modifier les dépendances avec :
+
+uv add
+uv remove
+uv lock
+
+Jamais directement dans requirements.txt
 ```
